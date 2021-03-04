@@ -8,8 +8,11 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form role="form" method="POST" action="{{ route('admin.students.store') }}" enctype="multipart/form-data">
+                <form role="form" action="{{ route('admin.students.update', $student->id) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
+                    {{ method_field('PUT') }}
+
                     @include('admin.student._partials.form')
 
                     <div class="row">

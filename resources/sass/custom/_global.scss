@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+
+form{
+    div.image{
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        height: inherit;
+        img{
+            max-width: 100%;
+            max-height: 100%;
+
+        }
+        .custom-file{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            opacity: 0;
+            display: -webkit-box;
+            display: flex;
+            .custom-file-input{
+                height: auto;
+                cursor: pointer;
+            }
+        }
+    }
+
+}
