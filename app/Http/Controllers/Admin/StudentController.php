@@ -10,6 +10,7 @@ use App\Imports\StudentsImport;
 use App\Models\SchoolClass;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -93,13 +94,17 @@ class StudentController extends Controller
 
     public function import(Request $request)
     {
+        $user = Auth::user();
+
         if($request->hasFile('file')){
             $file = $request->file('file');
             if($file->getMimeType() === "text/plain") {
-                Excel::import(new StudentsImport, $request->file('file'));
+               Excel::import(new StudentsImport, $request->file('file'));
+                $user->sendEmailFileUpload();
                 return redirect()->route('admin.students.index')->withSuccess(__('Arquivo enviado com Suscesso'));
             }
             return redirect()->back()->withError(__('Permitido somente arquivo .CSV'));
         }
     }
+
 }

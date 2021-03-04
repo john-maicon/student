@@ -8,15 +8,12 @@ use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-
-
 class StudentsImport implements ToModel, WithValidation, WithHeadingRow
 {
     use Importable;
 
     public function model(array $row)
     {
-
         return new Student([
             'school_classes_id' => $row['school_classes_id'],
             'name' => $row['name'],
@@ -37,5 +34,4 @@ class StudentsImport implements ToModel, WithValidation, WithHeadingRow
             'image' => 'nullable',
         ];
     }
-
 }

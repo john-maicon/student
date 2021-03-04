@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Mail\UploadStudents;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
