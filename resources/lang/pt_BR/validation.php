@@ -183,4 +183,10 @@ return [
         'password_confirmation' => 'confirmação da senha',
     ],
 
+    'required' => 'O campo é obrigatório',
+    'unique' => 'O valor informado para o campo já está em uso',
+    'min' => [
+        'string'  => 'O campo deve conter no mínimo :min caracteres.'
+    ]
+
 ];

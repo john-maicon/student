@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\StudentsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Student\StoreRequest;
 use App\Http\Requests\Student\UpdateRequest;
+use App\Imports\StudentsImport;
 use App\Models\SchoolClass;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class StudentController extends Controller
 {
@@ -75,5 +79,27 @@ class StudentController extends Controller
 
         $student->delete();
         return response()->json(['message' => __('Aluno deletado com sucesso')]);
+    }
+
+    public function show(Student $student)
+    {
+        return view('admin.student.show', ['student' => $student]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new StudentsExport, 'students.csv');
+    }
+
+    public function import(Request $request)
+    {
+        if($request->hasFile('file')){
+            $file = $request->file('file');
+            if($file->getMimeType() === "text/plain") {
+                Excel::import(new StudentsImport, $request->file('file'));
+                return redirect()->route('admin.students.index')->withSuccess(__('Arquivo enviado com Suscesso'));
+            }
+            return redirect()->back()->withError(__('Permitido somente arquivo .CSV'));
+        }
     }
 }

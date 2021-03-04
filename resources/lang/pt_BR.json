@@ -36,5 +36,6 @@
     "The :attribute must be at least :length characters and contain at least one uppercase character and one number.": "O campo :attribute deve ter pelo menos :length caracteres e conter pelo menos um caractere maiúsculo e um número.",
     "The :attribute must be at least :length characters and contain at least one uppercase character and one special character.": "O campo :attribute deve ter pelo menos :length caracteres e conter pelo menos um caractere maiúsculo e um caractere especial.",
     "The :attribute must be at least :length characters and contain at least one uppercase character, one number, and one special character.": "O campo :attribute deve ter pelo menos :length caracteres e conter pelo menos um caractere maiúsculo, um número e um caractere especial.",
-    "The :attribute must be at least :length characters.": "O campo :attribute deve ter pelo menos :length caracteres."
+    "The :attribute must be at least :length characters.": "O campo :attribute deve ter pelo menos :length caracteres.",
+    "There was an error on row :row. :message": "Ocorreu um erro na linha :row. :message"
 }

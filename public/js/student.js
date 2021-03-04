@@ -5,6 +5,7 @@ $(document).ready(function() {
     Message.error($('main').data('error'));
 
 
+
     $('#customFileStudent').on('change', function() {
         FormTool.previewImageBeforeUpload(this, $('#previewImageStudent'));
         if (this.files[0])

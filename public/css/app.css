@@ -10976,3 +10976,8 @@ form div.image .custom-file .custom-file-input {
   cursor: pointer;
 }
 
+#previewImageStudent {
+  max-width: 100%;
+  max-height: 100%;
+}
+
